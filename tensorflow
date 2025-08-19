@@ -1,0 +1,12 @@
+import tensorflow as tf
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(1, input_shape=(1,))
+])
+model.compile(optimizer='sgd', loss='mean_squared_error')
+
+X = tf.constant([[1.0], [2.0], [3.0]])
+y = tf.constant([[2.0], [4.0], [6.0]])
+
+model.fit(X, y, epochs=100, verbose=0)
+print("Prediction:", model.predict([[4.0]]))
